@@ -7,7 +7,7 @@
 int main(int argc, char **argv){
     //ERROR INPUT EXAMINATION
     if(argc != 2){
-        printf("Call the program as follows: ./myprog <capacity> , where <capacity> must not be 0\n");
+        printf("Call the program as follows: ./myprog <capacity>\n");
         exit(1);
     }
 

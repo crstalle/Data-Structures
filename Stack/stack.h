@@ -21,3 +21,6 @@ void destroy_stack(Stack *mystack);
 
 //Checks if Stack is full
 bool is_full(Stack *mystack);
+
+//Checks if Stack is empty
+bool is_empty(Stack *mystack);

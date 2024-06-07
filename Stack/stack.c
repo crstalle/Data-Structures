@@ -10,11 +10,10 @@
 
 //Creates a new empty Stack
 Stack *create_stack(int capacity){
-    //We need to check if the capacity == 0
+    //If capacity == 0, we cannot create a stack
     if(capacity == 0){
-        return NULL;  //We cannot create a stack with 0 nodes
+        return NULL;
     } 
-    
     Stack *mystack = malloc(sizeof(Stack));
     //We need to check if malloc was successful in order to continue, else we return NULL
     if(mystack == NULL){
@@ -44,4 +43,9 @@ void destroy_stack(Stack *mystack){
 //Is stack full?
 bool is_full(Stack *mystack){
     return (mystack->capacity == mystack->size);
+}
+
+//Is stack empty?
+bool is_empty(Stack *mystack){
+    return (mystack->size == 0);
 }

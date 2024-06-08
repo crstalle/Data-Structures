@@ -49,3 +49,39 @@ bool is_full(Stack *mystack){
 bool is_empty(Stack *mystack){
     return (mystack->size == 0);
 }
+
+//Pushes an item on the top of the Stack
+bool push(Stack *mystack, int data){
+    //Check if Stack is full
+    if(is_full(mystack)){
+        return false;
+    }
+
+    //If it isn't, we can push the item
+    mystack->collection[mystack->size] = data;
+    mystack->size++;
+    return true;
+}
+
+//Pops an item from the top of the Stack
+bool pop(Stack *mystack, int *popped_data){
+    //Check if Stack is empty
+    if(is_empty(mystack)){
+        return false;
+    }
+
+    //Stack is not empty, so we can pop an item from the top of the Stack
+    mystack->size--;
+    *popped_data = mystack->collection[mystack->size];
+
+    //we dont need to decrease the size again, because there will be pushed an item. So, we return true
+    return true;
+
+}
+
+//Prints the Stack
+void print_stack(Stack *mystack){
+    for(int i = mystack->size - 1; i>= 0; i--){
+        printf("%d\n", mystack->collection[i]);
+    }
+}

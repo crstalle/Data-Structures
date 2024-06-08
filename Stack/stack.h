@@ -13,6 +13,10 @@ typedef struct{
 } Stack;
 
 
+/*
+    STACK OPERATIONS
+*/
+
 //Creates a new empty Stack
 Stack *create_stack(int capacity);
 
@@ -24,3 +28,12 @@ bool is_full(Stack *mystack);
 
 //Checks if Stack is empty
 bool is_empty(Stack *mystack);
+
+//Pushes an item on the top of the Stack
+bool push(Stack *mystack, int data);
+
+//Pops an item from the top of the Stack
+bool pop(Stack *mystack, int *popped_data);
+
+//Prints the Stack
+void print_stack(Stack *mystack);

@@ -35,7 +35,23 @@ int length_list(List *mylist){
     return counter;
 }
 
-//Inserts new item on the List (last)
+//Inserts new second node
+void insert_second_list(List **mylist, ItemType Item){
+    //Create and setup the new node 
+    Node *insertion = malloc(sizeof(Node));
+    insertion->data = Item;
+    
+    //Create a temporary node
+    Node *temp = *mylist;
+    //Go to the second node and connect the insertion with the second node 
+    temp = temp->next;   //second node
+    insertion->next = temp; //connect the insertion with the second node
+
+    //Connect the first node with insertion
+    (*mylist)->next = insertion; 
+}
+
+//Inserts new last node 
 void insert_last_list(List **mylist, ItemType Item){
     //Firstly, lets create the Node we want to insert
     Node *insertion = malloc(sizeof(Node));
@@ -99,5 +115,36 @@ void print_list(List *mylist){
     }
     if(mylist != NULL){
         printf("\b\b}\n");
+    }
+}
+
+//Search for an item in the List
+Node *search_list(List *mylist, ItemType Item){
+    //Create temporary node
+    Node *temp = mylist;
+
+    //Search
+    while(temp != NULL){
+        if(temp->data == Item){
+            return temp;
+        }
+        temp = temp->next;
+    }
+    return NULL;
+}
+
+//Replace list[i] item
+void replace_item_list(List **mylist, ItemType Item, int position){
+    //Check if position is in the range of length
+    if(position > length_list(*mylist)){
+        printf("Position out of length.\n");
+    }
+    else{ //If is in the range...
+        //Create a temporary node to run through the List
+        Node *temp = *mylist;
+        for(int i = 1; i < position; i++){
+            temp = temp->next;
+        }
+        temp->data = Item;
     }
 }

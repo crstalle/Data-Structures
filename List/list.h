@@ -30,7 +30,10 @@ void is_empty_list(List *mylist);
 //Length of the List
 int length_list(List *mylist);
 
-//Inserts new item on the List (last)
+//Inserts new second node 
+void insert_second_list(List **mylist, ItemType Item);
+
+//Inserts new last node
 void insert_last_list(List **mylist, ItemType Item);
 
 //Delete last node 
@@ -38,3 +41,9 @@ void delete_last_list(List **mylist);
 
 //Prints the List
 void print_list(List *mylist);
+
+//Search for an item in the List
+Node *search_list(List *mylist, ItemType Item);
+
+//Replace list[i] item
+void replace_item_list(List **mylist, ItemType Item, int position);
